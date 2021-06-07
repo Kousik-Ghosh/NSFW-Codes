@@ -1,0 +1,16 @@
+#define  ll long long int
+
+void printBinary(ll n){
+    ll binary[32];
+    ll c = 0;
+    while(n > 0){
+        binary[c] = n%2;
+        n = n / 2;
+        ++c;
+    }
+    
+    /*print in reverse*/
+    for(ll i = c-1; i >= 0; i-- ){
+        cout<<binary[i];
+    }
+}
