@@ -1,0 +1,5 @@
+#define  ll long long int
+
+ll countDigit(ll n){
+    return floor(log10(n)+1);
+}
