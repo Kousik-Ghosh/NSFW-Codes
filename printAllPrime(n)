@@ -1,0 +1,21 @@
+#define  ll long long int
+
+void printAllPrime(ll n){
+
+    /*initialize array as true i.e. all are true until proven false*/
+    bool arr[n+1];
+    for(ll i = 2; i <= n; i++ )
+        arr[i] = true;
+        
+    /*loop from 2->n. if its prime, print it. then start from i*i because
+      let say i = 5 then before 25 we would have already covered via 2 & 3.
+      Also, jump i places after that (std. SoE)*/    
+    for(ll i=2; i <=n; i++){
+        if(arr[i]){
+            cout<<i<<" ";
+            for(ll j = i*i; j <=n; j = j + i){
+                arr[j] = false;
+            }
+        }
+    }
+}
