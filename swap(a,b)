@@ -1,0 +1,5 @@
+void swap(ll *a, ll *b){
+    *a = *a ^ *b;
+    *b = *a ^ *b;
+    *a = *a ^ *b;
+}
