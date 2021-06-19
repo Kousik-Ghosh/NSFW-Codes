@@ -1,0 +1,7 @@
+bool isSet(ll n, ll k){
+    if( n & 1<<(k-1) != 0){
+        return true;
+    }else{
+        return false;
+    }
+}
