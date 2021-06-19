@@ -1,0 +1,8 @@
+ll findOnlySingleAppearance(ll a[], ll size){
+    int x = 0;
+    for (int i = 0; i < size; ++i)
+    {
+        x = x ^ a[i];
+    }
+    return x;
+}
