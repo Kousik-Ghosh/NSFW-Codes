@@ -1,0 +1,7 @@
+XOR Till [1:N]
+Find the remainder of N by moduling it with 4.
+N = N % 4
+If rem = 0, then xor will be same as N.
+If rem = 1, then xor will be 1.
+If rem = 2, then xor will be N+1.
+If rem = 3 ,then xor will be 0.
