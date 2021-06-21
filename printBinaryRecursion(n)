@@ -1,0 +1,6 @@
+void printBinaryRecursion(ll n){
+    if(n == 0)
+        return;
+    printBinaryRecursion(n/2);
+    cout<<n%2;
+}
