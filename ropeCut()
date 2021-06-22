@@ -1,0 +1,18 @@
+ll max(ll p, ll q,ll r){
+    ll max = p;
+    if(q > max)
+       max = q;
+    if(r > max)
+        max = r;
+    return max;
+}
+
+/*pass x=0 initially*/
+ll ropeCut(ll n, ll a, ll b, ll c, ll x){
+
+    if(n == 0)
+        return x;
+    if(n < 0)
+        return -1;
+    return max(cut(n-a,a,b,c,x+1),cut(n-b,a,b,c,x+1),cut(n-c,a,b,c,x+1));
+}
