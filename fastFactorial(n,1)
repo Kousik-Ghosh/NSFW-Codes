@@ -1,0 +1,6 @@
+/*tail recursive - fast at run time*/
+ll fastFactorial(ll n, ll k){
+    if(n == 0 || n == 1)
+        return k;
+    return fact(n-1, k*n);
+}
