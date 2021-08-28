@@ -1,0 +1,30 @@
+int maxSumCircularSubArray(int arr[], int n){
+/*
+    1. Get the maxSumSubArray and get the maxSumCircularSubArray
+       compare both and return.
+    2. To get the circular one, logic:
+       a. get the minimum sum subarray and substract from 
+          whole array sum -> will ge your maximum circular sum 
+
+*/
+
+    int maxSumSubArrayValue = maxSumSubArray(arr, n);
+    if(maxSumSubArrayValue < 0){
+        /*it means all the elements in the array are negative*/
+        return maxSumSubArrayValue;
+    }
+
+    int sum = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        sum = sum + arr[i];
+        /*Inverting the array because, finding maxSumSubArray of
+          an inverted array is fiding the minimum sum subarray
+          for the original array*/
+        arr[i] = -arr[i];   
+    }
+    /* Substracting from the array sum 
+       P.S. here the maxSumSubArray is always negative*/
+    int maxSumCircularSubArray = sum + maxSumSubArray(arr, n);
+    return max(maxSumSubArrayValue, maxSumCircularSubArray);
+}
