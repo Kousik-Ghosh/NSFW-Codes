@@ -1,0 +1,16 @@
+int calculated[10000];
+int preCalculate(int arr[], int n){
+    calculated[0]= arr[0];
+    for (int i = 1; i < n; ++i)
+    {
+        calculated[i] = calculated[i-1] + arr[i];
+    }
+}
+
+int prefixSum(int l, int r){ 
+    if(l != 0){
+        return calculated[r] - calculated[l-1];
+    }else{
+        return calculated[r];
+    }
+}
