@@ -1,0 +1,25 @@
+bool windowSlidingGivenSum(int arr[], int n, int sum){
+   
+    int left = 0;
+    int delta = arr[0];
+    for (int i = 1; i < n; ++i)
+    {
+       
+        if(delta < sum){
+            delta = delta + arr[i];
+        }
+
+        while(delta > sum && left < i-1){
+            delta = delta - arr[left];
+            left++;
+        }
+
+        if(delta == sum){
+            return true;
+        }
+
+    }
+
+    return false;
+
+}
