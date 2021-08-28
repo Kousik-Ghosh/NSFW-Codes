@@ -1,0 +1,12 @@
+int maxSumSubArray(int arr[], int n){
+    /*Kadane algo*/
+    int m = arr[0];
+    int sumTillNow = arr[0];
+    for (int i = 1; i < n; ++i)
+    {
+        sumTillNow = max(sumTillNow+arr[i], arr[i]);
+        m = max(m,sumTillNow);
+    }
+
+    return m;
+}
