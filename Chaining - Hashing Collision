@@ -1,0 +1,24 @@
+struct chaining
+{
+    int BUCKET;
+    list<int> *table;
+    chaining(int table_size){
+        BUCKET = table_size;
+        table = new list<int>[table_size];
+    }
+    void insert(int x){
+        int table_position_hash = x % 7;
+        table[table_position_hash].push_back(x);
+    }
+    void remove(int x){
+        int table_position_hash = x % 7;
+        table[table_position_hash].remove(x);
+    }
+    bool search(int x){
+        int table_position_hash = x % 7;
+        for (auto i : table[table_position_hash])
+           if (i == x)
+              return true;
+        return false;      
+    } 
+};
