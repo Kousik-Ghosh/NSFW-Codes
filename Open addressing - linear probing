@@ -1,0 +1,85 @@
+struct OA
+{
+    int *arr;
+    int CAP;
+    int filled;
+
+    OA(int x){
+        CAP = x;
+        filled = 0;
+        arr = new int[CAP];
+        for (int i = 0; i < CAP; ++i)
+        {
+            arr[i] = -1;
+        }
+    }
+
+    int hash(int x){
+        return x % CAP;
+    }
+
+    void print(){
+       for (int i = 0; i < CAP; ++i)
+        {
+            cout<<arr[i]<<",";
+        }
+    }
+
+    bool insert(int key){
+        int hash_position = hash(key);
+        int i = hash_position;
+        if(filled == CAP){
+            cout<<"Can not insert "<<key<<". Array full."<<endl;
+            return false;
+        }
+        while(arr[i] != -1 && arr[i] != -2 && arr[i] != key){
+            i = hash(i+1);
+        }
+        if(arr[i] == key){
+            cout<<"Can not insert "<<key<<". Already inserted."<<endl;
+            return false;
+        }
+        else{
+            cout<<"Insert "<<key<<" at "<<i<<". hash = "<<hash_position<<endl;
+            arr[i] = key;
+            filled++;
+            return true;
+        }
+    }
+
+
+    bool search(int key){
+        int hash_position = hash(key);
+        int i = hash_position;
+        while(arr[i] != -1){
+            i = hash(i+1);
+            if(i == hash_position){
+                cout<<key<<" not found!"<<endl;
+                return false;
+            }
+            if(arr[i] == key){
+                cout<<"Found "<<key<<" at "<<i<<endl;
+                return true;
+            }
+        }
+        cout<<key<<" not found!"<<endl;
+        return false;
+    }
+
+    bool remove(int key){
+        int hash_position = hash(key);
+        int i = hash_position;
+        while(arr[i] != -1){
+            if(arr[i] == key){
+                arr[i] = -2;
+                return true;
+            }
+            i = hash(i+1);
+            if(i == hash_position){
+                return false;
+            }
+        }
+        return false;
+    }
+    
+};
