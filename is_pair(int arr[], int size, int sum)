@@ -1,0 +1,28 @@
+bool is_pair_addision(int arr[], int size, int sum){
+    unordered_set <int> s;
+    for (int i = 0; i < size; ++i){
+        if(s.find(sum-arr[i]) != s.end()){
+            s.insert(arr[i]);
+        }else{
+            return true;
+        }
+    }
+    return false;
+}
+
+bool is_pair_substraction(int arr[], int size, int sum){
+    unordered_set <int> s;
+    for (int i = 0; i < size; ++i){
+        if(s.find(sum+arr[i]) != s.end()){               //--> only difference
+            s.insert(arr[i]);
+        }else{
+            return true;
+        }
+    }
+    return false;
+}
+
+void driver(){
+    int arr[] = {1,3,5,9,15};
+    is_pair(arr,sizeof(arr)/sizeof(arr[0]),8);
+}
